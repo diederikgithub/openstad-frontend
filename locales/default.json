@@ -703,5 +703,11 @@
 	"Argument sentiment": "Argument sentiment",
 	"Select the sentiment when the 'in favor' and 'against' arguments are separately listed. Otherwise, choose 'No sentiment'.": "Select the sentiment when the 'in favor' and 'against' arguments are separately listed. Otherwise, choose 'No sentiment'.",
 	"Will be shown in the input field when the user hasn't typed anything yet.": "Will be shown in the input field when the user hasn't typed anything yet.",
-	"If not empty, it shows a link at the bottom of the item.": "If not empty, it shows a link at the bottom of the item."
+	"If not empty, it shows a link at the bottom of the item.": "If not empty, it shows a link at the bottom of the item.",
+	"The label shown next to the counter number.": "The label shown next to the counter number.",
+	"Optional: URL when counter is clicked.": "Optional: URL when counter is clicked.",
+	"Select counter type": "Select counter type",
+	"The idea counter dynamically shows the number of uploaded ideas. The number for the static counter can be set by hand.": "The idea counter dynamically shows the number of uploaded ideas. The number for the static counter can be set by hand.",
+	"Dynamically idea counter": "Dynamically idea counter",
+	"Static counter": "Static counter"
 }
