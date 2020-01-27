@@ -678,5 +678,19 @@
 	"ranking,desc": "ranking,desc",
 	"Ranglijst": "Ranglijst",
 	"Show vote counter (for gridder)": "Show vote counter (for gridder)",
-	"Step 2: succesfull feedback in button": "Step 2: succesfull feedback in button"
+	"Step 2: succesfull feedback in button": "Step 2: succesfull feedback in button",
+	"Basic": "Basic",
+	"Toggle-section": "Toggle-section",
+	"Styling": "Styling",
+	"Advanced": "Advanced",
+	"Select the number of columns and their relative width": "Select the number of columns and their relative width",
+	"Show section as toggle-section": "Show section as toggle-section",
+	"The visibility of a toggle-section can be switched on and off by the user.": "The visibility of a toggle-section can be switched on and off by the user.",
+	"Title of the toggle-section": "Title of the toggle-section",
+	"The title will always be visible. By clicking on the title the section's visibility toggles.": "The title will always be visible. By clicking on the title the section's visibility toggles.",
+	"Toggle-section open by default?": "Toggle-section open by default?",
+	"Show toggle-section on mobile only": "Show toggle-section on mobile only",
+	"Period or moment": "Period or moment",
+	"A period (from one point to another point in time) and a moment (one point in time) are visualised differently": "A period (from one point to another point in time) and a moment (one point in time) are visualised differently",
+	"For example: 'March 8th'": "For example: 'March 8th'"
 }
