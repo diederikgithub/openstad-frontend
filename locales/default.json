@@ -692,5 +692,14 @@
 	"Show toggle-section on mobile only": "Show toggle-section on mobile only",
 	"Period or moment": "Period or moment",
 	"A period (from one point to another point in time) and a moment (one point in time) are visualised differently": "A period (from one point to another point in time) and a moment (one point in time) are visualised differently",
-	"For example: 'March 8th'": "For example: 'March 8th'"
+	"For example: 'March 8th'": "For example: 'March 8th'",
+	"General": "General",
+	"Placeholder text": "Placeholder text",
+	"Will be shown in case there are no arguments.": "Will be shown in case there are no arguments.",
+	"No sentiment": "No sentiment",
+	"In favor": "In favor",
+	"Against": "Against",
+	"Will be shown in case there are no arguments yet.": "Will be shown in case there are no arguments yet.",
+	"Argument sentiment": "Argument sentiment",
+	"Select the sentiment when the 'in favor' and 'against' arguments are separately listed. Otherwise, choose 'No sentiment'.": "Select the sentiment when the 'in favor' and 'against' arguments are separately listed. Otherwise, choose 'No sentiment'."
 }
