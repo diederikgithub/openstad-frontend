@@ -701,5 +701,6 @@
 	"Against": "Against",
 	"Will be shown in case there are no arguments yet.": "Will be shown in case there are no arguments yet.",
 	"Argument sentiment": "Argument sentiment",
-	"Select the sentiment when the 'in favor' and 'against' arguments are separately listed. Otherwise, choose 'No sentiment'.": "Select the sentiment when the 'in favor' and 'against' arguments are separately listed. Otherwise, choose 'No sentiment'."
+	"Select the sentiment when the 'in favor' and 'against' arguments are separately listed. Otherwise, choose 'No sentiment'.": "Select the sentiment when the 'in favor' and 'against' arguments are separately listed. Otherwise, choose 'No sentiment'.",
+	"Will be shown in the input field when the user hasn't typed anything yet.": "Will be shown in the input field when the user hasn't typed anything yet."
 }
