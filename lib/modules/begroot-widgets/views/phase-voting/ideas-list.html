@@ -1,21 +1,23 @@
 {% macro showIdeasList(runningIdeas, fullHost, user, userHasVoted, isAdmin, data) %}
 <ul
-	id="ideaList"
-	class="gridder ideas-list"
-	onclick="handleClick(event);"
-	{% if data.widget.defaultSorting %}
-	data-default-sort="{{data.widget.defaultSorting}}"
-	{% endif %}
+id="ideaList"
+class="gridder ideas-list"
+onclick="handleClick(event);"
+{% if data.widget.defaultSorting %}
+data-default-sort="{{data.widget.defaultSorting}}"
+{% endif %}
 >
 	{% for idea in runningIdeas %}
 	<li
-		id="idea-{{idea.id}}"
-		class="gridder-list idea-item {% if loop.index % 3 === 0 %} third-item {% endif %} {{idea.status}}"
-		data-griddercontent="#idea-content-{{idea.id}}"
-		data-createdtime="{{idea.createdTime}}"
-		data-likes="{{idea.yes}}"
-		data-budget="{{idea.budget}}"
-		data-ranking="{{idea.extraData.ranking if idea.extraData.ranking else 10000}}"
+	id="idea-{{idea.id}}"
+	class="gridder-list idea-item {% if loop.index % 3 === 0 %} third-item {% endif %} {{idea.status}}"
+	data-griddercontent="#idea-content-{{idea.id}}"
+	data-createdtime="{{idea.createdTime}}"
+	data-likes="{{idea.yes}}"
+	data-budget="{{idea.budget}}"
+	data-ranking="{{idea.extraData.ranking}}"
+  data-ideaid="{{idea.id}}"
+	data-ranking="{{idea.extraData.ranking if idea.extraData.ranking else 10000}}"
 	>
 		<div class="idea-image-mask">
 			<div class="idea-image" style="background-image: url('{{data.widget.formatImageUrl(idea.extraData.images[0], 500, 500, true, idea.location) }}')"></div>
@@ -35,7 +37,7 @@
 				<h3 class="title">{{idea.title}}</h3>
 				{% if idea.extraData %}
 				<div class="thema-en-gebied underscription">
-					<span class="thema theme-{{idea.id}}">{{idea.extraData.theme}}</span> | <span class="gebied area-{{idea.id}}">{{idea.extraData.area}}</span>
+					{% if idea.extraData.theme %}<span class="thema theme-{{idea.id}}">{{idea.extraData.theme}}</span>{% endif %}{% if idea.extraData.theme and idea.extraData.area %} | {% endif %}{% if idea.extraData.area %}<span class="gebied area-{{idea.id}}">{{idea.extraData.area}}</span>{% endif %}
 				</div>
 				{% endif %}
 
@@ -99,12 +101,15 @@
 					<div class="visible-xs">
 						<br />
 						<div class="intro">
-							{{idea.summary | safe}}
+							{{idea.summary | stripSafe | safe}}
 						</div>
+            {% if idea.description %}
 						<div class="description">
-							{{idea.description | safe}}
+							{{idea.description | stripSafe | safe}}
 						</div>
+            {% endif %}
 					</div>
+					{% if not (data.widget.votingType == 'budgeting-per-theme') %}
 					<div class="share-buttons">
 						<table class="table-center">
 							<tr>
@@ -117,12 +122,13 @@
 										<li><a class="facebook" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{data.currentUrl}}?ideaId={{idea.id}}">Facebook</a></li>
 										<li><a class="twitter"  target="_blank" href="https://twitter.com/intent/tweet?text={{data.currentUrl}}?ideaId={{idea.id}}">Twitter</a></li>
 										<li><a class="email"    target="_blank" href="mailto:?subject={{data.global.siteTitle +': '+idea.title | urlencode}}&body={{data.currentUrl}}%3FideaId%3D{{idea.id}}">Email</a></li>
-										<li><a class="whatsapp" target="_blank" href="https://wa.me/?text={{ideaUrl | urlencode}}">WhatsApp</a></li>
+										<li><a class="whatsapp" target="_blank" href="https://api.whatsapp.com/send?phone=&text={{ideaUrl | urlencode}}&source=&data=">WhatsApp</a></li>
 									</ul>
 								</td>
 							</tr>
 						</table>
 					</div>
+          {% endif %}
 					<br />
 					{% if idea.extraData %}
 					<table class="thema-en-gebied">
@@ -139,7 +145,7 @@
 					</table>
 					{% endif %}
 					<br />
-					{% if data.widget.originalIdeaUrl %}
+					{% if data.widget.originalIdeaUrl and not idea.extraData.hideOriginalLink %}
 					{% set originalId = idea.extraData.originalId if idea.extraData.originalId else idea.id %}
 					<div class="margin-hor-10">
 						<a href="{{data.widget.originalIdeaUrl}}/{{originalId}}" class="link-original link-caret--blue" target="_blank">Bekijk het originele voorstel</a>
@@ -159,13 +165,15 @@
 					<div class="hidden-xs">
 						<h3 class="grider-title">{{idea.title}}</h3>
 						<div class="intro">
-							{{idea.summary | safe}}
+							{{idea.summary | stripSafe | safe}}
 						</div>
+						{% if idea.description %}
 						<div class="description">
-							{{idea.description | safe}}
+							{{idea.description | stripSafe | safe}}
 						</div>
+						{% endif %}
 						{% if data.isAdmin %}
-							<div class="description"><a href="{{data.global.editIdeaUrl}}?ideaId={{idea.id}}" target="_blank">Bewerk dit plan</a></div>
+						<div class="description"><a href="{{data.global.editIdeaUrl}}?ideaId={{idea.id}}" target="_blank">Bewerk dit plan</a></div>
 						{% endif %}
 					</div>
 				</div>

@@ -70,6 +70,7 @@ data-default-sort="{{data.widget.defaultSorting}}"
   data-likes="{{idea.yes}}"
   data-budget="{{idea.budget}}"
   data-ranking="{{idea.extraData.ranking}}"
+  data-ideaid="{{idea.id}}"
   >
     <div class="image-container" style="position: relative;">
     	<div class="image">
@@ -175,11 +176,11 @@ data-default-sort="{{data.widget.defaultSorting}}"
     <div class="content">
       <h3 class="desktop">{{data.widget.getTitleText(idea, data.widget.gridder_use_field_as_title)}}</h3>
       <div class="summary">{{idea.summary}}</div>
-      <div class="description">{{idea.description | safe | nlbr}}</div>
+      <div class="description">{{idea.description | nlbr | stripSafe | safe }}</div>
 
       {% if idea.extraData.advice %}
       <b> Tip </b>
-      <div class="tip description">{{idea.extraData.advice | nlbr}}</div>
+      <div class="tip description">{{idea.extraData.advice | nlbr | stripSafe | safe}}</div>
       {% endif %}
 
       {% include 'modbreak.html' %}
@@ -200,15 +201,13 @@ data-default-sort="{{data.widget.defaultSorting}}"
                 <li><a class="facebook" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{idea.overviewUrl}}">Facebook</a></li>
                 <li><a class="twitter"  target="_blank" href="https://twitter.com/intent/tweet?text={{idea.overviewUrl}}">Twitter</a></li>
                 <li><a class="email"    target="_blank" href="mailto:?subject={{data.widget.getTitleText(idea, data.widget.gridder_use_field_as_title) | urlencode}}&body={{idea.overviewUrl | urlencode}}">Email</a></li>
-                <li><a class="whatsapp" target="_blank" href="https://wa.me/?text={{idea.overviewUrl | urlencode}}">WhatsApp</a></li>
+                <li><a class="whatsapp" target="_blank" href="https://api.whatsapp.com/send?phone=&text={{idea.overviewUrl | urlencode}}&source=&data=">WhatsApp</a></li>
               </ul>
-            </td>
             </td>
           </tr>
         </table>
       </div>
     </div>
   </div>
-
-    		</div>
-    	{% endfor %}
+</div>
+{% endfor %}

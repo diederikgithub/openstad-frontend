@@ -13,7 +13,7 @@
                     <div class="header-block">
                         <h1>{{data.widget.title}}</h1>
                         <span class="subtitle">{{data.widget.subtitle}}</span>
-                        <div class="intro-text">{{data.widget.introText}}</div>
+                        <div class="intro-text">{{data.widget.introText | stripSafe | safe}}</div>
                         {% if data.widget.showBtnIntro %}
                         <div class="button-row">
                             {% if data.widget.btn1Url %}
@@ -30,15 +30,15 @@
                     <a href="/plannen" class="margin-bottom-xs scroll-link block no-decoration">
                         <span class="box-blue block">
                             <span class="margin-right-s">
-                              <span class="number-plate"> 0 </span>
-                              <span class="number-plate"> 2 </span>
-                              <span class="number-plate"> 3 </span>
+                                {% for num in data.widget.ideaCountParts %}
+                                    <span class="number-plate"> {{num}} </span>
+                                {% endfor %}
                             </span>
                             plannen
                         </span>
                     </a>
                     {% if data.widget.showBtn %}
-                    <a href="{{data.widget.btnUrl}}" class="link-box scroll-link margin-bottom-sm button-with-icon" style="">
+                    <a href="{{data.widget.btnUrl}}" class="link-box scroll-link margin-bottom-sm button-with-icon" style=""   {% if data.widget.targetBlank %} target="_blank" {% endif %}>
 
                         <img src="{{apos.attachments.url(data.widget.btnIcon)}}">
 
