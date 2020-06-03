@@ -13,6 +13,7 @@
 require('dotenv').config();
 //external libs
 const express                 = require('express');
+const http2                   = require('http2');
 const apostrophe              = require('apostrophe');
 const app                     = express();
 const _                       = require('lodash');
@@ -43,28 +44,6 @@ app.get('/config-reset', (req, res, next) => {
   host = host.replace(['http://', 'https://'], ['']);
   delete configForHosts[host];
   res.json({ message: 'Ok'});
-});
-
-
-app.get('/login', (req, res, next) => {
-  const unauthorized = (req, res) => {
-      var challengeString = 'Basic realm=Openstad';
-      res.set('WWW-Authenticate', challengeString);
-      return res.status(401).send('Authentication required.');
-  }
-
-  const basicAuthUser = process.env.LOGIN_CSM_BASIC_AUTH_USER;
-  const basicAuthPassword = process.env.LOGIN_CSM_BASIC_AUTH_PASSWORD;
-
-  if (basicAuthUser && basicAuthPassword) {
-    var user = auth(req);
-
-    if (!user || !compare(user.name, basicAuthUser) || ! compare(user.pass, basicAuthPassword)) {
-      unauthorized(req, res);
-    } else {
-      next();
-    }
-  }
 });
 
 app.use(function(req, res, next) {
@@ -139,7 +118,7 @@ function serveSite(req, res, siteConfig, forceRestart) {
 
           const safeStartServer = () => {
             if (aposStartingUp[dbName]) {
-              // timeout loop //
+              // old schotimeout loop to make sure we dont start multiple servers of the same site
               setTimeout(() => {
                 safeStartServer();
               }, 100);
@@ -156,7 +135,6 @@ function serveSite(req, res, siteConfig, forceRestart) {
       }
     })
   .catch((e) => {
-    console.log('err: ', e);
     res.status(500).json({ error: 'An error occured checking if the DB exists: ' + e });
   });
 }

@@ -1,9 +1,12 @@
 const path = require('path');
 const contentWidgets = require('./contentWidgets');
 const palette = require('./palette');
+const resourcesSchema = require('./resources.js').schemaFormat;
 
 module.exports = {
   get: (site, siteData, openstadMap, openstadMapPolygons) => {
+
+    const resources = siteData && siteData.resources ? siteData.resources : resourcesSchema;
 
     const siteConfig = {
       shortName: site._id,
@@ -16,7 +19,9 @@ module.exports = {
         'apostrophe-express': {
           port: process.env.PORT,
         },
-        'apostrophe-docs': {},
+        'apostrophe-docs': {
+          //advisoryLockTimeout: 2
+        },
         'openstad-widgets': {},
         'openstad-users': {},
         'openstad-auth': {},
@@ -82,12 +87,15 @@ module.exports = {
         'idea-single-widgets': {},
         'idea-form-widgets': {},
         'ideas-on-map-widgets': {},
+        'choices-guide-result-widgets': {},
+        'previous-next-button-block-widgets': {},
         'date-bar-widgets': {},
         'map-widgets': {},
         'idea-map-widgets': {},
         'link-widgets': {},
         'counter-widgets': {},
         'slider-widgets': {},
+        'cookie-warning-widgets': {},
         'arguments-widgets': {},
         'arguments-form-widgets': {},
         'gebiedsontwikkeling-tool-widgets': {},
@@ -95,25 +103,55 @@ module.exports = {
         'submissions-widgets': {},
         'participatory-budgeting-widgets': {},
         'begroot-widgets': {},
+        'cookie-warning-widgets': {},
+        'choices-guide-widgets': {},
         'local-video-widgets': {},
         'one-row-widgets': {},
         'image-widgets': {},
         'apostrophe-palette-widgets': {},
         'apostrophe-palette': {},
         'apostrophe-video-widgets': {},
+        'location-widgets': {},
+        'share-widgets': {},
+        'recource-raw-widgets': {},
+        'recource-image-widgets': {},
+        'recource-like-widgets': {},
+        'resource-admin-widgets' : {},
+        'resource-pages' : {
+          resources: resources
+        },
+        'resource-representation-widgets' : {
+          resources: resources
+        },
+        'resource-overview-widgets' : {
+          resources: resources
+        },
+        'resource-form-widgets' : {
+          resources: resources
+        },
         'apostrophe-palette-global': {
           paletteFields: palette.fields,
           arrangePaletteFields: palette.arrangeFields
         },
         'apostrophe-assets': {
           minify: process.env.MINIFY_JS && (process.env.MINIFY_JS == 1 || process.env.MINIFY_JS === 'ON'),
+          // we set the option te lean, this means a lot of the JS libraries ApostrhopeCMS assumes exists are turned off
+          // we manually included a few libs with Apos needs to functional
+          // in future in might make sense to make a further seperate for admin users and normal users
+        //  lean: false,
+          jQuery: 3,
           scripts: [
+          //  {name: 'jquery'},
+        //    {name: 'react'},
+        //    {name: 'react.dom'},
+            /* Apos script */
+    //        {name: 'apos/jquery.cookie'},
+    //        {name: 'apos/jquery.json-call'},
             {name: 'cookies'},
             {name: 'site'},
             {name: 'shuffle.min'},
             {name: 'sort'},
-            {name: 'jquery.validate.min'},
-            {name: 'jquery.dataTables.min'},
+      //      {name: 'jquery.dataTables.min'},
             {name: 'jquery.validate.min'},
             {name: 'jquery.validate.nl'},
           ],
@@ -123,6 +161,7 @@ module.exports = {
         },
         'info-bar-widgets': {},
         'apostrophe-area-structure': {},
+        'vimeo-upload': {}
       }
     };
 
