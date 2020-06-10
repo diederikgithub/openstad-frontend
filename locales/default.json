@@ -239,5 +239,18 @@
 	"Against": "Against",
 	"Select the sentiment when the 'in favor' and 'against' arguments are separately listed. Otherwise, choose 'No sentiment'.": "Select the sentiment when the 'in favor' and 'against' arguments are separately listed. Otherwise, choose 'No sentiment'.",
 	"Placeholder text": "Placeholder text",
-	"Will be shown when there are no arguments.": "Will be shown when there are no arguments."
+	"Will be shown when there are no arguments.": "Will be shown when there are no arguments.",
+	"Save Slider": "Save Slider",
+	"Items": "Items",
+	"Styling": "Styling",
+	"Styles for the container": "Styles for the container",
+	"Give Me a Label!": "Give Me a Label!",
+	"Save Items": "Save Items",
+	"+ Add Item": "+ Add Item",
+	"Limit Reached": "Limit Reached",
+	"Description": "Description",
+	"Link URL": "Link URL",
+	"If not empty, it shows a link at the bottom of the item.": "If not empty, it shows a link at the bottom of the item.",
+	"Link title": "Link title",
+	"The link will not be shown if left blank.": "The link will not be shown if left blank."
 }
