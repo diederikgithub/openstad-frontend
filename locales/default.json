@@ -300,5 +300,21 @@
 	"Text for the 'Deny cookies'-button": "Text for the 'Deny cookies'-button",
 	"Cookies preference": "Cookies preference",
 	"Edit Cookies preference": "Edit Cookies preference",
-	"Save Cookies preference": "Save Cookies preference"
+	"Save Cookies preference": "Save Cookies preference",
+	"Save Date bar": "Save Date bar",
+	"Text before the date": "Text before the date",
+	"Text after the date": "Text after the date",
+	"Date": "Date",
+	"Edit Date bar": "Edit Date bar",
+	"This related item may also be visible on the page. Please consider it first so that your final commit is more complete.": "This related item may also be visible on the page. Please consider it first so that your final commit is more complete.",
+	"Commit all like this": "Commit all like this",
+	"Skip all like this": "Skip all like this",
+	"Skip": "Skip",
+	"Modified fields: %s": "Modified fields: %s",
+	"The document was committed successfully.": "The document was committed successfully.",
+	"Date countdown bar": "Date countdown bar",
+	"Edit Date countdown bar": "Edit Date countdown bar",
+	"Save Date countdown bar": "Save Date countdown bar",
+	"Text to show before the set date is passed": "Text to show before the set date is passed",
+	"Text to show after the set date has passed": "Text to show after the set date has passed"
 }
