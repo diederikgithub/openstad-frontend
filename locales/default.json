@@ -316,5 +316,9 @@
 	"Edit Date countdown bar": "Edit Date countdown bar",
 	"Save Date countdown bar": "Save Date countdown bar",
 	"Text to show before the set date is passed": "Text to show before the set date is passed",
-	"Text to show after the set date has passed": "Text to show after the set date has passed"
+	"Text to show after the set date has passed": "Text to show after the set date has passed",
+	"Save Iframe": "Save Iframe",
+	"Styles for the iFrame": "Styles for the iFrame",
+	"Edit Iframe": "Edit Iframe",
+	"URL to load into the iframe": "URL to load into the iframe"
 }
