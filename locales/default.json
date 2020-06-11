@@ -356,5 +356,22 @@
 	"Phone (767px and smaller)": "Phone (767px and smaller)",
 	"Tablet (between 768px - 991px)": "Tablet (between 768px - 991px)",
 	"Tablet & phone (991px and smaller)": "Tablet & phone (991px and smaller)",
-	"Desktop (min width 992px)": "Desktop (min width 992px)"
+	"Desktop (min width 992px)": "Desktop (min width 992px)",
+	"Save Info bar": "Save Info bar",
+	"Message": "Message",
+	"The message that will be shown in the info bar.": "The message that will be shown in the info bar.",
+	"Removable": "Removable",
+	"Show a close-button?": "Show a close-button?",
+	"Styles": "Styles",
+	"Save Main Image": "Save Main Image",
+	"Title ": "Title ",
+	"Description ": "Description ",
+	"Image ": "Image ",
+	"Styles for text banner": "Styles for text banner",
+	"notfound": "notfound",
+	"Edit Main Image": "Edit Main Image",
+	"Save Speech Bubble": "Save Speech Bubble",
+	"Styles for the speech bubble": "Styles for the speech bubble",
+	"General styling": "General styling",
+	"Advanced styling": "Advanced styling"
 }
